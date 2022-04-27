@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'phonenumber_field',
+    'django_filters',
     'CodeAfrikaSchoolAPI',
     'CodeAfrikaSchoolAPI.Users',
     'CodeAfrikaSchoolAPI.Projects',
@@ -56,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'CodeAfrikaSchool.urls'
+
+AUTH_USER_MODEL = 'CodeAfrikaSchoolAPI.User'
 
 TEMPLATES = [
     {

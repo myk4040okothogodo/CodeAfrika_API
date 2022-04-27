@@ -9,11 +9,11 @@ class Community(models.Model):
     """A community that is made up of mambers with common interests."""
     name  = models.CharField(max_length= 50, blak=False, null=False)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL)
-    Topics = models.ManyToManyField(Topic)
+    topics = models.ManyToManyField(Topic)
     community_champion = models.ForeignKey(settings.AUTH_USER_MODEL)
     projects = models.ManyToMany(Project)
-    Courses = models.ManyToMany(Course)
-    Articles = models.ManyToMany(Article)
+    courses = models.ManyToMany(Course)
+    articles = models.ManyToMany(Article)
 
 
     def __str__(self):

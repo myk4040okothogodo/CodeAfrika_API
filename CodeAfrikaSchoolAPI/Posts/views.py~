@@ -33,7 +33,7 @@ class  DefaultsMixin(object):
 class PostViewSet(DefaultsMixin, viewsets.ModelViewSet):
     """ API endpoint for listing and creating Courses."""
     queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    filter_class = PostFilter
+    serializer_class = CourseSerializer
+    filter_class = CourseFilter
     search_fields = ('creator','post_type')
     ordering_fields = ('creator','post_type','content',)

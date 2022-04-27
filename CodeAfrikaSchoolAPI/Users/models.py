@@ -1,6 +1,7 @@
 from django.db import models
 from  django.contrib.auth.models import AbstractBaseUser, BaseUserManager,PermissionsMixin
 from django.conf import settings
+frm phonenumber_field.modelfields import PhoneNumberField
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None, **kwargs):
@@ -51,7 +52,7 @@ class UserManager(BaseUserManager):
         REQUIRED_FIELDS = ['username']
         if roles.includes('member'):
             membership_plan = models.PositiveIntegerField(choices=MEMBERSHIP_PLANS)
-
+        phone_number = PhoneNumberField(default = "+***********")
 
         objects = UserManager()
 
