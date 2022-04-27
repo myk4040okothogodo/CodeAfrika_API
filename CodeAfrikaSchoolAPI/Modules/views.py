@@ -7,9 +7,9 @@ from rest_framework import authentication, permissions, viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.renderers import JSONRenderer
 
-from .form import PostFilter
-from .model import Post
-from .serializers import PostSerializer
+from .form import ModuleFilter
+from .model import Module
+from .serializers import ModuleSerializer
 
 class  DefaultsMixin(object):
     """ Default setting for authentication, permissions, filterinng and pagination."""
@@ -30,10 +30,10 @@ class  DefaultsMixin(object):
         filter.OrderingFilter,
             )
 
-class PostViewSet(DefaultsMixin, viewsets.ModelViewSet):
+class ModuleViewSet(DefaultsMixin, viewsets.ModelViewSet):
     """ API endpoint for listing and creating Courses."""
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    filter_class = PostFilter
-    search_fields = ('creator','post_type')
-    ordering_fields = ('creator','post_type','content',)
+    queryset = Module.objects.all()
+    serializer_class = ModuleSerializer
+    filter_class = ModuleFilter
+    search_fields = ('name',)
+    ordering_fields = ('name','tasks',)

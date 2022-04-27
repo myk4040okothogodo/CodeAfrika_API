@@ -1,11 +1,10 @@
 from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-from ..Communities.models import Community
-from ..Lessons.models import Lessons
+#from ..Communities.models import Community
+from ..Lessons.models import Lesson
 
 class Course(models.Model):
-
 
     INSTRUCTOR_LED = 1
     ON_DEMAND = 2
@@ -30,8 +29,11 @@ class Course(models.Model):
     lessons = models.ManyToMany(Lesson)
     course_category = models.PositiveSmallIntegerField(choices=COURSE_CATEGORY, primary_key=True)
     dificulty_level = models.PositiveSmallIntegerField(choices=DIFICULTY_LEVEL, default=BASIC)
-    candidates = models.ManyToMany(setting.AUTH_USER_MODEL, null= True)
+    candidates = models.ManyToManyField(settings.AUTH_USER_MODEL, null= True)
 
+
+    def __str__(self):
+        return f"{self.name}"
 
     def clean(self):
         if lessons < 2:

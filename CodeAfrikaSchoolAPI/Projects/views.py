@@ -36,5 +36,4 @@ class ProjectViewSet(DefaultsMixin, viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     filter_class = ProjectFilter
     search_fields = ('name','language')
-    ordering_fields 
-    = ('modules','name','language',)
+    ordering_fields  = ('modules','name','language',)

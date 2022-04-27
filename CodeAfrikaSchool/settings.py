@@ -42,8 +42,11 @@ INSTALLED_APPS = [
     'django_filters',
     'CodeAfrikaSchoolAPI',
     'CodeAfrikaSchoolAPI.Users',
+    'CodeAfrikaSchoolAPI.Lessons',
+    'CodeAfrikaSchoolAPI.Modules',
+    'CodeAfrikaSchoolAPI.Topics',
     'CodeAfrikaSchoolAPI.Projects',
-    'CodeAFrikaSchoolAPI.Courses',
+    'CodeAfrikaSchoolAPI.Courses',
     'CodeAfrikaSchoolAPI.Communities',
     'CodeAfrikaSchoolAPI.Posts',
 ]
@@ -60,7 +63,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'CodeAfrikaSchool.urls'
 
-AUTH_USER_MODEL = 'CodeAfrikaSchoolAPI.User'
+AUTH_USER_MODEL = 'CodeAfrikaSchoolAPI_Users.User'
+
+
+PHONENUMBER_DB_FORMAT = 'E164'
 
 TEMPLATES = [
     {

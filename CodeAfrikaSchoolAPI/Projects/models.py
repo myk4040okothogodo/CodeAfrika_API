@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from ..Moodules.users import Module
+from ..Modules.users import Module
 # Create your models here.
 
 class Project(models.Model):
@@ -9,7 +9,7 @@ class Project(models.Model):
     JAVASCRIPT = 3
     RUST    = 4
     GOLANG  = 5
-    C++     = 6
+    C_PLUSPLUS     = 6
     C       = 7
     SOLIDITY= 8
     LANGUAGE = (
@@ -18,13 +18,13 @@ class Project(models.Model):
         (JAVASCRIPT, _('javascript')),
         (RUST, _('rust')),
         (GOLANG, _('golang')),
-        (C++ , _('c++')),
+        (C_PLUSPLUS , _('c_plusplus')),
         (SOLIDITY, _('solidity')),
             )
 
     name = models.CharField(max_length= 30, blank=False)
     language = models.PositiveSmallIntegerField(choices=LANGUAGE, default=PYTHON)
-    modules = models.ForeignKey(Modules)
+    modules = models.ForeignKey(Modules, on_delete=models.CASCADE)
 
 
 
