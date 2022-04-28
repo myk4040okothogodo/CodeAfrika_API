@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from ..Modules.users import Module
+#from ..School_Modules.users import School_Module
 # Create your models here.
+
 
 class Project(models.Model):
     PYTHON  = 1
@@ -24,7 +25,7 @@ class Project(models.Model):
 
     name = models.CharField(max_length= 30, blank=False)
     language = models.PositiveSmallIntegerField(choices=LANGUAGE, default=PYTHON)
-    modules = models.ForeignKey(Modules, on_delete=models.CASCADE)
+    #schoolmodules = models.ForeignKey(School_Module, on_delete=models.CASCADE)
 
 
 

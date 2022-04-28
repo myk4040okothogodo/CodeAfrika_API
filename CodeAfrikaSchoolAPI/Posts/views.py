@@ -4,12 +4,13 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 
 from rest_framework import authentication, permissions, viewsets, filters
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters import rest_framework as filters
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.renderers import JSONRenderer
 
-from .form import PostFilter
-from .model import Post
-from .serializers import PostSerializer
+from .forms import PostFilter
+from .models import Post
+from .serializer import PostSerializer
 
 class  DefaultsMixin(object):
     """ Default setting for authentication, permissions, filterinng and pagination."""
@@ -26,8 +27,9 @@ class  DefaultsMixin(object):
     paginate_by_params = 'page_size'
     max_paginate_by = 100
     filter_backends = (
-        filter.SearchFilter,
-        filter.OrderingFilter,
+        filters.DjangoFilterBackend,
+        SearchFilter,
+        OrderingFilter,
             )
 
 class PostViewSet(DefaultsMixin, viewsets.ModelViewSet):

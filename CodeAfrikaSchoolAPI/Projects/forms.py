@@ -2,7 +2,7 @@ from django_filters.rest_framework import BooleanFilter, FilterSet, DateFilter
 from django.contrib.auth import get_user_model
 
 
-from .models import Post
+from .models import Project
 
 User = get_user_model()
 
@@ -17,11 +17,9 @@ class NullFilter(BooleanFilter):
 class ProjectFilter(FilterSet):
     class Meta:
         model = Project
-        fields = ('name','language','modules',)
+        fields = ('name','language',)
 
 
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
-            self.filters['modules'].extra.update(
-                    {'to_module_name': Module.name}
-                    )
+            

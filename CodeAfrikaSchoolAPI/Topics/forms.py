@@ -1,7 +1,7 @@
 from  django_filters.rest_framework import BooleanFilter, FilterSet, DateFilter
 from django.contrib.auth import get_user_model
 
-from .model import Topic
+from .models import Topic
 
 User = get_user_model()
 
@@ -15,9 +15,9 @@ class NullFilter(BooleanFilter):
         return qs
 
 
-class CommunityFilter(FilterSet):
+class TopicFilter(FilterSet):
     class Meta:
-        model = Community
+        model = Topic
         fields = ('name','posts','created_by')
 
 

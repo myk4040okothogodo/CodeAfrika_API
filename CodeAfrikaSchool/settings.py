@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'CodeAfrikaSchoolAPI',
     'CodeAfrikaSchoolAPI.Users',
     'CodeAfrikaSchoolAPI.Lessons',
-    'CodeAfrikaSchoolAPI.Modules',
+    #'CodeAfrikaSchoolAPI.School_Modules',
     'CodeAfrikaSchoolAPI.Topics',
     'CodeAfrikaSchoolAPI.Projects',
     'CodeAfrikaSchoolAPI.Courses',

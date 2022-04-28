@@ -4,12 +4,12 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 
-from .model import Post
+from .models import Post
 
 User = get_user_model()
 
 
-class PostSErializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
     favorited_by = serializers.SlugRelatedField(
        slug_field = User.USERNAME_FIELD, required=False, allow_null=True,

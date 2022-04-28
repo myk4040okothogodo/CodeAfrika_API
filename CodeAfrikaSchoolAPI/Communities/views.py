@@ -10,7 +10,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.renderers import JSONRenderer
 
 from  .forms import CommunityFilter
-from  .model import Community
+from  .models import Community
 from  .serializer import CommunitySerializer
 
 
@@ -22,7 +22,7 @@ class DefaultsMixin(object):
 
 
     authentication_classes = (
-            authentication.BasicAUthentication,
+            authentication.BasicAuthentication,
             authentication.TokenAuthentication,
             )
     permission_classes = (
@@ -38,13 +38,13 @@ class DefaultsMixin(object):
             )
 
 
-class CommunityView(DefaultsMixin, viewsets.ModelViewSet):
+class CommunityViewSet(DefaultsMixin, viewsets.ModelViewSet):
     """ API endpoint fro listing and creating communities."""
     queryset = Community.objects.all()
     serializer_class = CommunitySerializer
     filter_class = CommunityFilter
     search_fields = ('name')
-    ordering_fields = ('name','topics','members','courses','artcles',)
+    ordering_fields = ('name','topics','members','courses','articles',)
 
 
 

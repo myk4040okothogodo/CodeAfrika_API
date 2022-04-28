@@ -4,16 +4,16 @@ from rest_framework import serializers
 from rest_framework.reverse import reverse
 
 
-from .model import Project
+from .models import Project
 
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    links = serializers.SeriazlizerMethodField()
+    links = serializers.SerializerMethodField()
 
     class Meta:
         model = Project
-        fields = ('id','name','language','modules','links')
+        fields = ('id','name','language','links')
 
 
     def get_links(self, obj):
@@ -25,8 +25,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 
                 }
 
-        if obj.modules:
-            links['modules'] = reverse('module-detail',
-                kwargs = {'pk': obj.modules}, request=request
-                    )
+        #if obj.modules:
+         #   links['modules'] = reverse('module-detail',
+          #      kwargs = {'pk': obj.modules}, request=request
+           #         )
         return links

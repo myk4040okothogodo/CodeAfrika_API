@@ -1,7 +1,7 @@
 from  django_filters.rest_framework import BooleanFilter, FilterSet, DateFilter
 from django.contrib.auth import get_user_model
 
-from .model import Community
+from .models import Community
 
 User = get_user_model()
 
@@ -18,7 +18,7 @@ class NullFilter(BooleanFilter):
 class CommunityFilter(FilterSet):
     class Meta:
         model = Community
-        fields = ('topics','members','projects','courses','articles')
+        fields = ('topics','members','projects','courses',)
 
 
         def __init__(self, *args, **kwargs):

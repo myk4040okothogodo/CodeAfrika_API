@@ -25,10 +25,10 @@ class Course(models.Model):
 
     """A subject of study that is offered by the institution and is examinable."""
     name = models.CharField(max_length= 50, blank=False, null=False)
-    pratical_assesment = models.TextField(blank=False)
-    lessons = models.ManyToMany(Lesson)
+    practical_assesment = models.TextField(blank=False)
+    lessons = models.ManyToManyField(Lesson)
     course_category = models.PositiveSmallIntegerField(choices=COURSE_CATEGORY, primary_key=True)
-    dificulty_level = models.PositiveSmallIntegerField(choices=DIFICULTY_LEVEL, default=BASIC)
+    difficulty_level = models.PositiveSmallIntegerField(choices=DIFICULTY_LEVEL, default=BASIC)
     candidates = models.ManyToManyField(settings.AUTH_USER_MODEL, null= True)
 
 

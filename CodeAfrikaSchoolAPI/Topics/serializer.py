@@ -2,7 +2,7 @@ from django.conf import settings
 from rest_framework import serializers
 from rest_framework.reverse import reverse
 from .models import Topic
-
+from django.contrib.auth import get_user_model
 
 
 User = get_user_model()

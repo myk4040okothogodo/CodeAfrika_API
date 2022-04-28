@@ -17,7 +17,7 @@ class NullFilter(BooleanFilter):
 class CourseFilter(FilterSet):
     class Meta:
         model = Course
-        fields = ('name','practical_assesment','lessons','ccourse_category','difficulty_level','candidates',)
+        fields = ('name','practical_assesment','lessons','course_category','difficulty_level','candidates',)
 
 
         def __init__(self, *args, **kwargs):

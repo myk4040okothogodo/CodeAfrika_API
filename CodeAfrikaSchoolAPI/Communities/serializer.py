@@ -7,7 +7,7 @@ from .models import Community
 User = get_user_model()
 
 
-class CommunitySerializer(models.Model):
+class CommunitySerializer(serializers.ModelSerializer):
     """A serializer a for community model data."""
     links = serializers.SerializerMethodField('get_links')
     class Meta:

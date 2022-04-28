@@ -14,7 +14,7 @@ class NullFilter(BooleanFilter):
         return qs
 
     
-class CourseFilter(FilterSet):
+class PostFilter(FilterSet):
     class Meta:
         model = Post
         fields = ('creator','content','post_type','favorited_by',)

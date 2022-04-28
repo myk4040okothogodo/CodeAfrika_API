@@ -4,7 +4,7 @@ from rest_framework.reverse import reverse
 
 
 
-User = get_user_model():
+User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField('get_links')

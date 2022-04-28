@@ -2,7 +2,6 @@ from django_filters.rest_framework import BooleanFilter, FilterSet, DateFilter
 from django.contrib.auth import get_user_model
 
 
-from .models import Post
 
 User = get_user_model()
 
@@ -14,9 +13,9 @@ class NullFilter(BooleanFilter):
         return qs
 
     
-class ProjectFilter(FilterSet):
+class UserFilter(FilterSet):
     class Meta:
-        model = Project
+        model = User
         fields = ('username','email','is_active','is_staff','followers','roles','phone_number',)
 
 

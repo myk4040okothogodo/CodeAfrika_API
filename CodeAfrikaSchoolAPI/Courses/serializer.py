@@ -15,7 +15,7 @@ class CourseSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
 
     class Meta:
-        model = Task
+        model = Course
         fields = ('id','name','practical_assesment','lessons','course_category','difficulty_level', 'candidates', 'links')
 
 

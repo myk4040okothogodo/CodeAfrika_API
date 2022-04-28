@@ -2,14 +2,14 @@ from django.shortcuts import render
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
-
-from rest_framework import authentication, permissions, viewsets, filters
-from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework import authentication, permissions, viewsets
+from django_filters import rest_framework as filters
 from rest_framework.renderers import JSONRenderer
 
-from .form import CourseFilter
-from .model import Course
-from .serializers import CourseSerializer
+from .forms import CourseFilter
+from .models import Course
+from .serializer import CourseSerializer
 
 class  DefaultsMixin(object):
     """ Default setting for authentication, permissions, filterinng and pagination."""
@@ -26,8 +26,9 @@ class  DefaultsMixin(object):
     paginate_by_params = 'page_size'
     max_paginate_by = 100
     filter_backends = (
-        filter.SearchFilter,
-        filter.OrderingFilter,
+        filters.DjangoFilterBackend,
+        SearchFilter,
+        OrderingFilter,
             )
 
 class CourseViewSet(DefaultsMixin, viewsets.ModelViewSet):
