@@ -15,13 +15,13 @@ from .serializer import LessonSerializer
 class  DefaultsMixin(object):
     """ Default setting for authentication, permissions, filterinng and pagination."""
 
-    authentication_classes = (
-        authentication.BasicAuthentication,
-        authentication.TokenAuthentication,
-            )
-    permission_classes = (
-        permissions.IsAuthenticated,
-            )
+    #authentication_classes = (
+    #    authentication.BasicAuthentication,
+    #    authentication.TokenAuthentication,
+    #        )
+    #permission_classes = (
+    #    permissions.IsAuthenticated,
+    #        )
 
     paginate_by = 25
     paginate_by_params = 'page_size'
